@@ -75,16 +75,19 @@
     <Compile Include="Assets\Avatar\unity-chan!\Unity-chan! Model\Scripts\UnityChanControlScriptWithRgidBody.cs" />
     <Compile Include="Assets\Avatar\unity-chan!\Unity-chan! Model\SplashScreen\Scripts\SplashScreen.cs" />
     <Compile Include="Assets\EasyMotionRecorder-master\EasyMotionRecorder\Assets\EasyMotionRecorder\Scripts\CharacterFacialData.cs" />
-    <Compile Include="Assets\EasyMotionRecorder-master\EasyMotionRecorder\Assets\EasyMotionRecorder\Scripts\FaceAnimationRecorder.cs" />
     <Compile Include="Assets\EasyMotionRecorder-master\EasyMotionRecorder\Assets\EasyMotionRecorder\Scripts\ForRuntime\MotionDataPlayerCSV.cs" />
     <Compile Include="Assets\EasyMotionRecorder-master\EasyMotionRecorder\Assets\EasyMotionRecorder\Scripts\ForRuntime\MotionDataRecorderCSV.cs" />
     <Compile Include="Assets\EasyMotionRecorder-master\EasyMotionRecorder\Assets\EasyMotionRecorder\Scripts\HumanoidPoses.cs" />
     <Compile Include="Assets\EasyMotionRecorder-master\EasyMotionRecorder\Assets\EasyMotionRecorder\Scripts\MotionDataPlayer.cs" />
     <Compile Include="Assets\EasyMotionRecorder-master\EasyMotionRecorder\Assets\EasyMotionRecorder\Scripts\MotionDataRecorder.cs" />
+    <Compile Include="Assets\FileBrowserTest.cs" />
+    <Compile Include="Assets\RecButtonController.cs" />
     <Compile Include="Assets\Scripts\CameraMover.cs" />
     <Compile Include="Assets\Scripts\VNectBarracudaRunner.cs" />
     <Compile Include="Assets\Scripts\VNectModel.cs" />
     <Compile Include="Assets\Scripts\VideoCapture.cs" />
+    <Compile Include="Assets\StaticVariables.cs" />
+    <Compile Include="Assets\Test.cs" />
     <Compile Include="Assets\VRM\DepthFirstScheduler\Functor.cs" />
     <Compile Include="Assets\VRM\DepthFirstScheduler\IEnumeratorExtensions.cs" />
     <Compile Include="Assets\VRM\DepthFirstScheduler\LockQueue.cs" />
@@ -937,7 +940,12 @@
       <HintPath>C:/D/UnityProjects/ThreeDPoseUnityBarracuda/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup></ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="SimpleFileBrowser.Runtime.csproj">
+      <Project>{88C845E0-72D3-DF23-10A6-E195D7BFAB82}</Project>
+      <Name>SimpleFileBrowser.Runtime</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

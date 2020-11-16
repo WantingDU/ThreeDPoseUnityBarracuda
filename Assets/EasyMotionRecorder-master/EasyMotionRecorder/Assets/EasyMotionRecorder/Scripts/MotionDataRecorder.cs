@@ -85,7 +85,21 @@ namespace Entum
                 RecordEnd();
             }
         }
+        //--------------------- PILS ---------------------------//
+        public void onPressed()
+        {
+            if (RecButtonController.pressed)
+            {
+                RecordStart();
+            }
+            else
+            {
+                RecordEnd();
+            }
+            RecButtonController.pressed = !RecButtonController.pressed;
 
+        }
+        //--------------------- PILS ---------------------------//
         // Update is called once per frame
         private void LateUpdate()
         {
@@ -235,12 +249,13 @@ namespace Entum
 
         protected virtual void WriteAnimationFile()
         {
+            //----------------------PILS--------------------//
+            StaticVariables.debugger.text = "writing...";
+            //----------------------PILS--------------------//
 #if UNITY_EDITOR
             SafeCreateDirectory("Assets/Resources");
-
             var path = string.Format("Assets/Resources/RecordMotion_{0}{1:yyyy_MM_dd_HH_mm_ss}.asset", _animator.name, DateTime.Now);
             var uniqueAssetPath = AssetDatabase.GenerateUniqueAssetPath(path);
-
             AssetDatabase.CreateAsset(Poses, uniqueAssetPath);
             AssetDatabase.Refresh();
             StartTime = Time.time;
