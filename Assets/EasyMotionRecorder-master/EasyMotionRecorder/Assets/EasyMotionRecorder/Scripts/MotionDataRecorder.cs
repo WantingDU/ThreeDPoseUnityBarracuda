@@ -77,28 +77,31 @@ namespace Entum
         {
             if (Input.GetKeyDown(_recordStartKey))
             {
+                RecButtonController.pressed = true;
                 RecordStart();
             }
 
             if (Input.GetKeyDown(_recordStopKey))
             {
+                RecButtonController.pressed = false;
                 RecordEnd();
             }
         }
         //--------------------- PILS ---------------------------//
-        public void onPressed()
-        {
-            if (RecButtonController.pressed)
-            {
-                RecordStart();
-            }
-            else
-            {
-                RecordEnd();
-            }
-            RecButtonController.pressed = !RecButtonController.pressed;
+        //Bug: csv not generated when use button but key
+        //public void onPressed()
+        //{
+        //    RecButtonController.pressed = !RecButtonController.pressed;
+        //    if (RecButtonController.pressed)
+        //    {
+        //        RecordStart();
+        //    }
+        //    else
+        //    {
+        //        RecordEnd();
+        //    }
 
-        }
+        //}
         //--------------------- PILS ---------------------------//
         // Update is called once per frame
         private void LateUpdate()
@@ -201,6 +204,9 @@ namespace Entum
             }
 
             OnRecordEnd += WriteAnimationFile;
+            //---------------- PILS -----------------------//
+            OnRecordEnd += new MotionDataRecorderCSV().WriteAnimationFile;
+            //---------------- PILS -----------------------//
             _recording = true;
             RecordedTime = 0f;
             StartTime = Time.time;
@@ -224,6 +230,9 @@ namespace Entum
             }
 
             OnRecordEnd -= WriteAnimationFile;
+            //---------------- PILS -----------------------//
+            OnRecordEnd -= new MotionDataRecorderCSV().WriteAnimationFile;
+            //---------------- PILS -----------------------//
             _recording = false;
         }
 
@@ -249,14 +258,18 @@ namespace Entum
 
         protected virtual void WriteAnimationFile()
         {
-            //----------------------PILS--------------------//
+            //---------------------- PILS --------------------//
             StaticVariables.debugger.text = "writing...";
-            //----------------------PILS--------------------//
+            //---------------------- PILS --------------------//
 #if UNITY_EDITOR
             SafeCreateDirectory("Assets/Resources");
             var path = string.Format("Assets/Resources/RecordMotion_{0}{1:yyyy_MM_dd_HH_mm_ss}.asset", _animator.name, DateTime.Now);
             var uniqueAssetPath = AssetDatabase.GenerateUniqueAssetPath(path);
             AssetDatabase.CreateAsset(Poses, uniqueAssetPath);
+            //------------- PILS ------------------------------//
+            //Generate HumanoidAnim file 
+            Poses.ExportHumanoidAnim();
+            //---------------------- PILS --------------------//
             AssetDatabase.Refresh();
             StartTime = Time.time;
             RecordedTime = 0f;

@@ -340,7 +340,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245105516}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -1298,7 +1298,7 @@ VideoPlayer:
   m_RenderMode: 2
   m_AspectRatio: 2
   m_DataSource: 0
-  m_PlaybackSpeed: 2.04
+  m_PlaybackSpeed: 1
   m_AudioOutputMode: 0
   m_TargetAudioSources:
   - {fileID: 0}
@@ -3169,7 +3169,7 @@ PrefabInstance:
     - target: {fileID: 114494349119178576, guid: 26de42e5745b2b547b1714ecb3625597,
         type: 3}
       propertyPath: _targetRootBone
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114854222126709126, guid: 26de42e5745b2b547b1714ecb3625597,
         type: 3}
@@ -3185,7 +3185,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1564027555}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1958337775}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 171f7816f5da7ba4eab3cf34b9955f13, type: 3}
@@ -3712,7 +3712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NNModel: {fileID: 5022602860645237092, guid: 7b719758218afc742a945a64dfaf1578, type: 3}
-  WorkerType: 32768
+  WorkerType: 256
   Verbose: 0
   VNectModel: {fileID: 1009339738}
   videoCapture: {fileID: 1873549733}
@@ -3819,6 +3819,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.15
+--- !u!1 &1958337775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1076081908508874, guid: 26de42e5745b2b547b1714ecb3625597,
+    type: 3}
+  m_PrefabInstance: {fileID: 1564027555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1958337776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958337775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f22fa5e3058f6342986e9f24598e16d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recordStartKey: 114
+  _recordStopKey: 120
+  _animator: {fileID: 1009339739}
+  _recording: 0
+  FrameIndex: 0
+  _rootBoneSystem: 1
+  _targetRootBone: 0
+  IK_LeftFootBone: 5
+  IK_RightFootBone: 6
+  TargetFPS: 60
+  _outputDirectory: C:/D/UnityProjects/
+  _outputFileName: 
 --- !u!1 &1986651701
 GameObject:
   m_ObjectHideFlags: 0

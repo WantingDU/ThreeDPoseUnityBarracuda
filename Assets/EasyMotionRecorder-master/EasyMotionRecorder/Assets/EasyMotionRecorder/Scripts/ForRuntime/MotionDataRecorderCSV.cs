@@ -30,24 +30,30 @@ namespace Entum
         {
             //ファイルオープン
             string directoryStr = _outputDirectory;
+            print("csv");
+            //----------------PILS----------------------------//
+            directoryStr = "C:/D/UnityProjects/";
+            //----------------PILS----------------------------//
             if (directoryStr == "")
             {
                 //自動設定ディレクトリ
+                print("Auto name directory");
                 directoryStr = Application.streamingAssetsPath + "/";
-
                 if (!Directory.Exists(directoryStr))
                 {
                     Directory.CreateDirectory(directoryStr);
                 }
             }
+            
 
             string fileNameStr = _outputFileName;
             if (fileNameStr == "")
             {
                 //自動設定ファイル名
+                print("Auto name file");
                 fileNameStr = string.Format("motion_{0:yyyy_MM_dd_HH_mm_ss}.csv", DateTime.Now);
             }
-
+            print(this.GetType().Name+" Path: " + directoryStr +","+ fileNameStr);
             FileStream fs = new FileStream(directoryStr + fileNameStr, FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
 
